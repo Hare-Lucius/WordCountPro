@@ -1,4 +1,4 @@
 17044：核心模块（Count.java）
 17062：输入模块（Input.java）
 17064：其他模块（Main.java）
-17065：输出模块（Output.java）
+17065：输出模块（Output.java）、图形界面（CountGUI.java）

@@ -1,43 +1,37 @@
-package wcPro;
-
+package wcpro;
 import java.io.*;
-public class Output 
-{
-	private String[] name;
-	private int[] num;
-	private int length=0;
-	private int record;
-	public Output(String[] name,int[] num,int record)
-	{
-		this.record=record+1;
-		this.name=name;
-		this.num=num;
+/**
+ * 
+ * @author xuhao
+ * 功能：将前一百个词频及对应单词按指定格式输出至文本文档
+ *
+ */
+public class Output{ 
+	private String[] name = {};
+	private int[] num = {};
+	private int record = 0;
+	public Output(String[] name,int[] num, int record){
+		this.record = record+1;
+		this.name = name;
+		this.num = num;
 	}
 	public void out() throws IOException{
-        if(record>100) record=100;
-        else if(record==0) 
+        if (record > 100) 
         	{
-        	System.out.println("没有统计到单词"); 
-        	//return 0;
+        	record = 100;
         	}
-       // if(name.length!=num.length) 
-        //	{
-        //	System.out.println("单词数量统计错误"); 
-        	//return 1;
-        //	}
+        else if (record == 0) {
+        	System.out.println("没有统计到单词"); 
+        	}
         System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream("output.txt")),true)); 
-		for(int i=0;i<record;i++)
-		{
-			if(num[i]<0) 
-			{
-		        System.setOut(new PrintStream(new BufferedOutputStream(  
-		                new FileOutputStream(FileDescriptor.out)),true));  
+		for (int i = 0;i < record;i++){
+		    if (num[i] < 0) {
+		        System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(FileDescriptor.out)),true));  
 		        System.out.println("单词数量统计错误");
-		        //return 1;
 			}
-			System.out.println(name[i]+" "+num[i]);
+			System.out.println(name[i] + " " + num[i]);
 		}
-		//return 2;
+        System.setOut(new PrintStream(new BufferedOutputStream(  
+                new FileOutputStream(FileDescriptor.out)),true));  
 	}
-
 }
